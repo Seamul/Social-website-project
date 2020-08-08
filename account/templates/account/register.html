@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Registration Fields</title>
+</head>
+<body>
+	<form method="post" action=".">
+		{{registrationForm.as_p}}
+		{% crsf_token %}
+	</form>
+</body>
+</html>
