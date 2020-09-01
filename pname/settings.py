@@ -29,7 +29,7 @@ ALLOWED_HOSTS = [
     'mysite.com',
     'localhost',
     '127.0.0.1',
-    '832b9b9eb58a.ngrok.io'
+    '87ddbc21f21e.ngrok.io',
 ]
 
 
@@ -45,6 +45,8 @@ INSTALLED_APPS = [
     'account',
     'account2',
     'images',
+    'sorl.thumbnail',
+    'actions',
 ]
 
 MIDDLEWARE = [
@@ -145,3 +147,10 @@ AUTHENTICATION_BACKENDS = [
     # 'social_core.backends.twitter.TwitterOAuth',
     # 'social_core.backends.google.GoogleOAuth2',
 ]
+
+from django.urls import reverse_lazy
+
+ABSOLUTE_URL_OVERRIDES = {
+    'auth.user': lambda u: reverse_lazy('user_detail',
+                                        args=[u.username])
+}
